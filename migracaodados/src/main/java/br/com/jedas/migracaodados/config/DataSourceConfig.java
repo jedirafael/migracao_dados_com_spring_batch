@@ -1,12 +1,11 @@
 package br.com.jedas.migracaodados.config;
+import javax.sql.DataSource;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.jdbc.DataSourceBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
-
-import javax.sql.DataSource;
 
 @Configuration
 public class DataSourceConfig {
@@ -16,8 +15,10 @@ public class DataSourceConfig {
     public DataSource springDataSource() {
         return DataSourceBuilder.create().build();
     }
+
+
     @Bean
-    @ConfigurationProperties(prefix = "app.datasource")
+    @ConfigurationProperties(prefix="app.datasource")
     public DataSource appDataSource() {
         return DataSourceBuilder.create().build();
     }
